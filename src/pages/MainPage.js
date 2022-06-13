@@ -1,12 +1,18 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { app } from '../index'
 import Button from '../components/Button/Button';
 import useAdvise from '../hooks/useAdvise/useAdvise';
 import BarChart from '../components/BarChart/BarChart';
+import Cruiser from '../components/Cruiser/Cruiser'
 
 import classes from './MainPage.module.css'
 
 const MainPage = () => {
+    const navigate = useNavigate()
+    if(!app.currentUser){
+        navigate("/")
+    }
 
     const [ from, setFrom ] = useState('2022-01-01T00:00')
     const [ to, setTo ] = useState('2022-01-07T23:59')
@@ -49,6 +55,7 @@ const MainPage = () => {
     return (
         <React.Fragment>
             {adviseComponent}
+            <Cruiser />
             <div className={classes.MainPage}>
                 <div className={classes.FiltersContainer}>
                     <div>

@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button/Button';
 import useAdvise from '../hooks/useAdvise/useAdvise';
 import Table from '../components/Table/Table'
+import Cruiser from '../components/Cruiser/Cruiser';
 import { app } from '../index'
 
 import classes from './SecondPage.module.css'
 
 const SecondPage = () => {
+
+    const navigate = useNavigate()
+    if(!app.currentUser){
+        navigate("/")
+    }
+
     const [ from, setFrom ] = useState('2022-01-01T00:00')
     const [ to, setTo ] = useState('2022-01-07T23:59')
     const [ btnBlocked, setBtnBlocked ] = useState(true)
@@ -45,6 +53,7 @@ const SecondPage = () => {
     return (
         <React.Fragment>
             {adviseComponent}
+            <Cruiser />
             <div className={classes.SecondPage}>
                 <div className={classes.FiltersContainer}>
                     <div>

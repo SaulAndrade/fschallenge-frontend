@@ -1,0 +1,26 @@
+.Cruiser {
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+}
+
+.Cruiser:first-child a {
+    margin-left: 32px;
+    text-decoration: none;
+    color: rgba(51, 51, 153, 1)
+}
+
+.Cruiser:first-child a:visited {
+    text-decoration: none;
+    color: rgba(51, 51, 153, 1);
+}
+
+.Cruiser:first-child{
+    margin-left: 32px;
+}
+
+.LogoutContainer{
+    margin-right: 32px;
+}
