@@ -39,15 +39,18 @@ const MainPage = () => {
 
     const getScore = async () => {
         setFetching(true)
+        setLoading(true)
+        setShowAdvise(true)
         try {
             const score = await app.currentUser.functions.getScore({from:from, to:to, ndrivers:drivers})
             setFetching(false)
+            setLoading(false)
+            setShowAdvise(false)
             setScore(score)
         }
         catch(e){
             setLoading(false)
             setAdviseMsg( `Fetching data failed: ${e}` )
-            setShowAdvise(true)
             setFetching(false)
         }
     }
